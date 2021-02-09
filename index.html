@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+    <title>Chess</title>
+    <style>
+        img {
+            display: none;
+        }
+        #container {
+            display: flex;
+            justify-content: center;
+        }
+        .choice {
+            width: 100%;
+            height: 60px;
+            padding: 0 10px 0 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer;
+            justify-content: space-between;
+        }
+        .choice:hover {
+            background: #cdcaca;
+        }
+        .choice img {
+            height: 100%
+        }
+        .choice p {
+            font-size: 21px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+
+    <button class="btn-primary" id="ai">Make AI Move</button>
+
+    <img id="b" src="./images/black.png" />
+    <img id="w" src="./images/white.jpg" />
+
+    <img id="wP" src="./images/wP.png" />
+    <img id="bP" src="./images/bP.png" />
+    <img id="wR" src="./images/wR.png" />
+    <img id="bR" src="./images/bR.png" />
+    <img id="wB" src="./images/wB.png" />
+    <img id="bB" src="./images/bB.png" />
+    <img id="wN" src="./images/wN.png" />
+    <img id="bN" src="./images/bN.png" />
+    <img id="wQ" src="./images/wQ.png" />
+    <img id="bQ" src="./images/bQ.png" />
+    <img id="wK" src="./images/wK.png" />
+    <img id="bK" src="./images/bK.png" />
+
+
+
+    <script type="module" src="./chess/index.js"></script>
+</body>
+</html>
