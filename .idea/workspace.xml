@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="daf380d5-73b8-485c-999f-cfe9babfd0e0" name="Default Changelist" comment="" />
+    <list default="true" id="daf380d5-73b8-485c-999f-cfe9babfd0e0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/chess/functions/getAllMoves.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chess/chess.js" beforeDir="false" afterPath="$PROJECT_DIR$/chess/chess.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chess/functions/controlEventsInit.js" beforeDir="false" afterPath="$PROJECT_DIR$/chess/functions/controlEventsInit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chess/functions/createModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/chess/functions/createModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chess/functions/getBestMove.js" beforeDir="false" afterPath="$PROJECT_DIR$/chess/functions/getBestMove.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chess/functions/mouseEventsInit.js" beforeDir="false" afterPath="$PROJECT_DIR$/chess/functions/mouseEventsInit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chess/functions/move.js" beforeDir="false" afterPath="$PROJECT_DIR$/chess/functions/move.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1o14Jr1PUwbTsrjlpusQ7rvQFof" />
   <component name="ProjectViewState">
@@ -16,6 +28,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -34,10 +47,22 @@
       <workItem from="1612713761586" duration="2837000" />
       <workItem from="1612733435754" duration="2911000" />
       <workItem from="1612802150537" duration="14357000" />
+      <workItem from="1612866288123" duration="16227000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

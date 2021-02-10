@@ -1,12 +1,12 @@
 function controlEventsInit() {
-    const { ai, getBestMove, move, render } = this
+    let { ai, getBestMove, step, render, turn } = this
 
     document.getElementById(ai).onclick = (e) => {
-        const { i, j, ni, nj } = getBestMove(this.turn)
+        const { i, j, ni, nj } = getBestMove()
 
-        move(i, j, ni, nj)
-        this.turn = this.turn === "b" ? "w" : "b"
-        render.bind(this)()
+        //step(i, j, ni, nj)
+        //this.turn = turn === "b" ? "w" : "b"
+        //render.bind(this)()
     }
 }
 

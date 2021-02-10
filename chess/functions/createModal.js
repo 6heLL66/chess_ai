@@ -1,4 +1,4 @@
-import move from "./move.js"
+import {move} from "./move.js"
 
 function createModal(id, team, i, j, ni, nj, header, type) {
     const modal = document.createElement("div")
@@ -50,7 +50,7 @@ function createModal(id, team, i, j, ni, nj, header, type) {
 }
 
 function createChoice(figure, i, j, ni, nj, modal) {
-    let { board, render } = this
+    let { board, render, turn } = this
 
     const div = document.createElement("div")
     div.setAttribute("class", "choice")
@@ -85,6 +85,7 @@ function createChoice(figure, i, j, ni, nj, modal) {
         modal.remove()
         move.bind(this)(i, j, ni, nj)
         board[ni][nj] = figure
+        turn = turn === "w" ? "b" : "w"
         render.bind(this)()
     }
 

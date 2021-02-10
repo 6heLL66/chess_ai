@@ -1,56 +1,87 @@
-import checkMove from "./checkMove.js"
 import { values } from "../constants.js"
 
-function getBestMove(team) {
-    const { board, info } = this
+function getBestMove() {
+    const { turn, getAllMoves, lastState, info, board, step, undo } = this
 
-    let allMoves = getAllMoves(team, board, info)
+    let allMoves = getAllMoves(turn)
+    getMovesValues.bind(this)(allMoves)
 
-    let movesValues = allMoves.map(move => {
-        return getValue(board, info, move, team) - getValue(board, info, move, team === "w" ? "b" : "w")
-    })
-    let maxi = 0
-    movesValues.map((value, i) => {
-        if (value >= movesValues[maxi]) {
-            maxi = i
-        }
-    })
+    //console.log(board, info)
+    let bestMove = -9999
+    let result
 
-    console.log(movesValues)
+   /* allMoves.map(move => {
+        lastState.push({ copyB: board.map(i => i.map(j => j)), copyI: info.map(i => i.map(j => j)) })
+        step(move.i, move.j, move.ni, move.nj)
+        console.log(board.map(i => i.map(j => j)))
+        /!*let value = minmax.bind(this)(0, turn === "w" ? "b" : "w", turn)
+        console.log("value", value)
+        if (value >= bestMove) {
+            bestMove = value
+            result = move
+        }*!/
+        undo()
+        console.log(board.map(i => i.map(j => j)))
+    })*/
 
-    return allMoves[maxi]
+    return allMoves[0]
 }
 
-function getAllMoves(team, board, info) {
-    let result = []
-    for (let i = 0; i < 8; i++) {
-        for (let j = 0; j < 8; j++) {
-            if (info[i][j] && info[i][j].team === team) {
-                for (let k = 0; k < 8; k++) {
-                    for (let h = 0; h < 8; h++) {
-                        if (checkMove(board, info, i, j, k, h)) result.push({ i, j, ni: k, nj: h })
-                    }
-                }
-            }
-        }
-    }
-    return result
-}
-
-function getValue(board, info, move, team) {
-    let boardCopy = board.map(i => i.map(j => j))
-    boardCopy[move.ni][move.nj] = boardCopy[move.i][move.j]
-    boardCopy[move.i][move.j] = ""
+function getValue(board) {
     let value = 0
 
     for (let i = 0; i < 8; i++) {
         for (let j = 0; j < 8; j++) {
-            if (boardCopy[i][j] && boardCopy[i][j].substr(0,1) === team) {
-                value += values[boardCopy[i][j].substr(1, 1)]
+            if (board[i][j]) {
+                let team = board[i][j].substr(0, 1)
+                value += values[board[i][j].substr(1, 1)] * (team === "b" ? -1 : 1)
             }
         }
     }
+
     return value
+}
+
+function getMovesValues(moves) {
+    let { board, info, step, lastState, undo } = this
+
+    let result = []
+
+    for (let i = 0; i < moves.length; i++) {
+        lastState.push({ copyB: board.map(i => i.map(j => j)), copyI: info.map(i => i.map(j => j)) })
+        step(moves[i].i, moves[i].j, moves[i].ni, moves[i].nj)
+        result.push(getValue(board))
+        undo()
+    }
+
+
+    return result
+}
+
+
+function minmax(depth, turn, team) {
+    let { board, getAllMoves, step, undo, info, lastState } = this
+
+    let allMoves = getAllMoves(turn)
+    let movesValues = getMovesValues.bind(this)(allMoves)
+
+    if (depth === 0) {
+        return getValue(board)
+    }
+
+    let bestMove = movesValues[0]
+
+    for (let i = 0; i < allMoves.length; i++) {
+        lastState.push({ copyB: board.map(i => i.map(j => j)), copyI: info.map(i => i.map(j => j)) })
+        step(allMoves[i].i, allMoves[i].j, allMoves[i].ni, allMoves[i].nj)
+
+        if (team === turn) bestMove = Math.max(bestMove, minmax.bind(this)(depth - 1, turn === "w" ? "b" : "w", team))
+        else bestMove = Math.min(bestMove, minmax.bind(this)(depth - 1, turn === "w" ? "b" : "w", team))
+
+        undo()
+    }
+
+    return bestMove
 }
 
 export default getBestMove

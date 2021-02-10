@@ -2,17 +2,20 @@ import canvasInit from "./functions/canvasInit.js"
 import {startInfo, startPosition} from "./constants.js"
 import drawBoard from "./functions/drawBoard.js"
 import mouseEventsInit from "./functions/mouseEventsInit.js"
-import move from "./functions/move.js"
+import {move, undo, step} from "./functions/move.js"
 import getBestMove from "./functions/getBestMove.js"
 import controlEventsInit from "./functions/controlEventsInit.js"
+import getAllMoves from "./functions/getAllMoves.js"
 
 class Chess {
     constructor(id, ai, size) {
         this.relocatable = false
         this.ai = ai
         this.started = false
-        this.turn = "w"
         this.move = move.bind(this)
+        this.undo = undo.bind(this)
+        this.step = step.bind(this)
+        this.getAllMoves = getAllMoves.bind(this)
         canvasInit.bind(this)(id, size)
         this.getBestMove = getBestMove.bind(this)
     }
@@ -23,6 +26,7 @@ class Chess {
         this.clientTeam = "w"
         this.aiTeam = "b"
         this.turn = "w"
+        this.lastState = []
         this.started = true
         mouseEventsInit.bind(this)()
         controlEventsInit.bind(this)()

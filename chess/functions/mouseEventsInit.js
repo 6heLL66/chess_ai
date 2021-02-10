@@ -1,5 +1,5 @@
 import checkMove from "./checkMove.js"
-import upgradePawn from "./upgradePawn.js"
+import {step} from "./move.js";
 
 function mouseEventsInit() {
     if (!this.started) return
@@ -42,17 +42,7 @@ function mouseEventsInit() {
 
         if (x >= 0 && x <= canvas.width && y >= 0 && y <= canvas.width) {
             if (checkMove(board, info, this.relocatable.i, this.relocatable.j, i, j)) {
-                if (checkMove(board, info, this.relocatable.i, this.relocatable.j, i, j) === "r") {
-                    move(this.relocatable.i, 7, this.relocatable.i, 5)
-                } else if (checkMove(board, info, this.relocatable.i, this.relocatable.j, i, j) === "l") {
-                    move(this.relocatable.i, 0, this.relocatable.i, 3)
-                }
-
-                if (board[this.relocatable.i][this.relocatable.j].substr(1, 1) === "P"
-                    && (i === 0 || i === 7)) {
-                    upgradePawn.bind(this)(this.relocatable.i, this.relocatable.j, info[this.relocatable.i][this.relocatable.j].team, i, j)
-                } else move(this.relocatable.i, this.relocatable.j, i, j)
-
+                step(this.relocatable.i, this.relocatable.j, i, j)
             }
             document.body.style.cursor = "grab"
         }
