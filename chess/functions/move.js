@@ -11,39 +11,45 @@ function move(i, j, ni, nj) {
     info[i][j] = null
 }
 
-function undo() {
-    let { board, info, lastState } = this
+function undo(changeTeam) {
+    let { lastState } = this
     let last = lastState[lastState.length - 1]
 
-    console.log(last.copyB)
-    console.log(board.map(i => i.map(j => j)))
-
-    board = last.copyB
-    info = last.copyI
-
-    console.log(board.map(i => i.map(j => j)))
+    this.board = last.copyB.map(i => i.map(j => j))
+    this.info = last.copyI.map(i => i.map(j => j))
 
     lastState.splice(lastState.length - 1, 1)
+    if (changeTeam) this.turn = this.turn === "w" ? "b" : "w"
 }
 
-function step(i, j, ni, nj) {
-    let { board, info, move, relocatable, turn } = this
+function step(i, j, ni, nj, type, anyway) {
+    const { board, info, move, relocatable } = this
 
-    if (i === 6 && j === 0 && ni === 4)console.log("asd")
+    if (i === undefined) console.log(i, j, ni, nj, type, anyway)
+
+    if (info[i][j].team !== this.turn && !anyway) return false
 
     if (checkMove(board, info, i, j, ni, nj) === "r") {
         move(i, 7, i, 5)
     } else if (checkMove(board, info, i, j, ni, nj) === "l") {
-        move(relocatable.i, 0, relocatable.i, 3)
+        move(i, 0, i, 3)
     }
 
     if (board[i][j].substr(1, 1) === "P"
-        && (i === 0 || i === 7)) {
-        upgradePawn.bind(this)(i, j, info[i][j].team, ni, nj)
+        && (ni === 0 || ni === 7)) {
+        if (type !== undefined) {
+            move(i, j, ni, nj)
+            board[ni][nj] = `${info[ni][nj].team}${type}`
+            info[ni][nj].steps++
+            return true
+        } else {
+            upgradePawn.bind(this)(i, j, info[i][j].team, ni, nj)
+            return false
+        }
     } else {
         move(i, j, ni, nj)
         info[ni][nj].steps++
-        this.turn = turn === "w" ? "b" : "w"
+        return true
     }
 }
 

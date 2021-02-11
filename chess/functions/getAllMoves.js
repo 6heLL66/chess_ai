@@ -8,7 +8,14 @@ function getAllMoves(team) {
             if (info[i][j] && info[i][j].team === team) {
                 for (let k = 0; k < 8; k++) {
                     for (let h = 0; h < 8; h++) {
-                        if (checkMove(board, info, i, j, k, h)) result.push({ i, j, ni: k, nj: h })
+                        if (checkMove(board, info, i, j, k, h)) {
+                            if (board[i][j].substr(1, 1) === "P" && (k === 7 || k === 0)) {
+                                result.push({ i, j, ni: k, nj: h, type: "Q" })
+                                result.push({ i, j, ni: k, nj: h, type: "N" })
+                            } else {
+                                result.push({ i, j, ni: k, nj: h })
+                            }
+                        }
                     }
                 }
             }

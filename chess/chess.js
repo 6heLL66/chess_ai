@@ -6,6 +6,7 @@ import {move, undo, step} from "./functions/move.js"
 import getBestMove from "./functions/getBestMove.js"
 import controlEventsInit from "./functions/controlEventsInit.js"
 import getAllMoves from "./functions/getAllMoves.js"
+import checkMate from "./functions/checkMate.js"
 
 class Chess {
     constructor(id, ai, size) {
@@ -15,6 +16,7 @@ class Chess {
         this.move = move.bind(this)
         this.undo = undo.bind(this)
         this.step = step.bind(this)
+        this.checkMate = checkMate.bind(this)
         this.getAllMoves = getAllMoves.bind(this)
         canvasInit.bind(this)(id, size)
         this.getBestMove = getBestMove.bind(this)
@@ -33,8 +35,13 @@ class Chess {
         this.render()
     }
 
-    stop() {
+
+    pause() {
         this.started = false
+    }
+
+    continue() {
+        this.started = true
     }
 
     render() {

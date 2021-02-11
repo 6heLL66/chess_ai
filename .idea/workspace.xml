@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="daf380d5-73b8-485c-999f-cfe9babfd0e0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/chess/functions/getAllMoves.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chess/functions/checkMate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chess/chess.js" beforeDir="false" afterPath="$PROJECT_DIR$/chess/chess.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chess/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/chess/constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chess/functions/controlEventsInit.js" beforeDir="false" afterPath="$PROJECT_DIR$/chess/functions/controlEventsInit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chess/functions/createModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/chess/functions/createModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chess/functions/drawBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/chess/functions/drawBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chess/functions/getAllMoves.js" beforeDir="false" afterPath="$PROJECT_DIR$/chess/functions/getAllMoves.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chess/functions/getBestMove.js" beforeDir="false" afterPath="$PROJECT_DIR$/chess/functions/getBestMove.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chess/functions/mouseEventsInit.js" beforeDir="false" afterPath="$PROJECT_DIR$/chess/functions/mouseEventsInit.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chess/functions/move.js" beforeDir="false" afterPath="$PROJECT_DIR$/chess/functions/move.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +23,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1o14Jr1PUwbTsrjlpusQ7rvQFof" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -48,6 +52,7 @@
       <workItem from="1612733435754" duration="2911000" />
       <workItem from="1612802150537" duration="14357000" />
       <workItem from="1612866288123" duration="16227000" />
+      <workItem from="1612981003830" duration="17944000" />
     </task>
     <servers />
   </component>
@@ -64,5 +69,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
